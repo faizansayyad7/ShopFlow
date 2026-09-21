@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ product["name"] }} - ShopFlow
+{% endblock %}
+
+{% block content %}
+
+<section class="product-detail-page">
+
+    <div class="product-detail-image">
+
+        {% if product["id"] == 1 %}
+            🎧
+        {% elif product["id"] == 2 %}
+            ⌨️
+        {% elif product["id"] == 3 %}
+            ⌚
+        {% else %}
+            🔌
+        {% endif %}
+
+    </div>
+
+
+    <div class="product-detail-info">
+
+        <div class="product-rating">
+            ★★★★★
+            <span style="color:#64748b;">
+                4.5/5
+            </span>
+        </div>
+
+        <h1>
+            {{ product["name"] }}
+        </h1>
+
+        <p>
+            {{ product["description"] }}
+        </p>
+
+        <div class="detail-price">
+            ₹{{ product["price"] }}
+        </div>
+
+        <p>
+            ✓ Free delivery available<br>
+            ✓ Secure payment<br>
+            ✓ Easy returns
+        </p>
+
+        <a
+            href="/add-to-cart/{{ product['id'] }}"
+            class="button"
+        >
+            🛒 Add to Cart
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

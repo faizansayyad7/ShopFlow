@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}ShopFlow - Products{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>All Products</h2>
+
+        <span>
+            {{ products|length }} products
+        </span>
+
+    </div>
+
+
+    <div class="products">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                {% if product["id"] == 1 %}
+                    🎧
+                {% elif product["id"] == 2 %}
+                    ⌨️
+                {% elif product["id"] == 3 %}
+                    ⌚
+                {% else %}
+                    🔌
+                {% endif %}
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-rating">
+                    ★★★★★
+                </div>
+
+                <h2>
+                    {{ product["name"] }}
+                </h2>
+
+                <p>
+                    {{ product["description"] }}
+                </p>
+
+                <div class="product-price">
+                    ₹{{ product["price"] }}
+                </div>
+
+                <a
+                    href="/product/{{ product['id'] }}"
+                    class="button"
+                >
+                    View Product
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

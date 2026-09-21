@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}ShopFlow{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="top-header">
+
+        <div class="header-container">
+
+            <a href="/" class="logo">
+                <span class="logo-icon">🛒</span>
+                <span>ShopFlow</span>
+            </a>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    placeholder="Search for products, brands and more..."
+                >
+
+                <button type="button">
+                    🔍
+                </button>
+            </div>
+
+            <div class="header-actions">
+
+                <a href="#" class="header-link">
+                    👤
+                    <span>Account</span>
+                </a>
+
+                <a href="/cart" class="header-link cart-link">
+                    🛒
+                    <span>Cart</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+
+        <div class="nav-container">
+
+            <a href="/">Home</a>
+
+            <a href="/products">Products</a>
+
+            <a href="/products">Electronics</a>
+
+            <a href="/products">Accessories</a>
+
+            <a href="/products">Deals</a>
+
+            <a href="/cart">My Cart</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div>
+                <h3>ShopFlow</h3>
+                <p>
+                    A modern e-commerce application built
+                    for learning Cloud & DevOps.
+                </p>
+            </div>
+
+            <div>
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/products">Products</a>
+                <a href="/cart">Cart</a>
+            </div>
+
+            <div>
+                <h4>Technology</h4>
+                <p>Python • Flask</p>
+                <p>Docker • Jenkins</p>
+                <p>AWS • Kubernetes</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 ShopFlow. Built for DevOps learning.
+        </div>
+
+    </footer>
+
+</body>
+</html>

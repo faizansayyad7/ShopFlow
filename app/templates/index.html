@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}ShopFlow - Online Shopping{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero-banner">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            ShopFlow Marketplace
+        </div>
+
+        <h1>
+            Upgrade Your<br>
+            Everyday Tech
+        </h1>
+
+        <p>
+            Discover quality electronics and accessories
+            at prices you'll love.
+        </p>
+
+        <a href="/products" class="hero-button">
+            Shop Now →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Categories -->
+<section class="section">
+
+    <div class="section-header">
+        <h2>Shop by Category</h2>
+    </div>
+
+    <div class="categories">
+
+        <a href="/products" class="category-card">
+            <div class="category-icon">🎧</div>
+            <h3>Audio</h3>
+        </a>
+
+        <a href="/products" class="category-card">
+            <div class="category-icon">⌨️</div>
+            <h3>Computer</h3>
+        </a>
+
+        <a href="/products" class="category-card">
+            <div class="category-icon">⌚</div>
+            <h3>Wearables</h3>
+        </a>
+
+        <a href="/products" class="category-card">
+            <div class="category-icon">🔌</div>
+            <h3>Accessories</h3>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Products -->
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>Today's Deals</h2>
+
+        <a href="/products">
+            View All →
+        </a>
+
+    </div>
+
+    <div class="products">
+
+        <div class="product-card">
+
+            <div class="product-image">
+                🎧
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-rating">
+                    ★★★★★
+                </div>
+
+                <h2>Wireless Headphones</h2>
+
+                <p>
+                    Comfortable wireless headphones
+                    for everyday use.
+                </p>
+
+                <div class="product-price">
+                    ₹1,999
+                </div>
+
+                <a href="/product/1" class="button">
+                    View Product
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ⌨️
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-rating">
+                    ★★★★★
+                </div>
+
+                <h2>Mechanical Keyboard</h2>
+
+                <p>
+                    Mechanical keyboard for work
+                    and gaming.
+                </p>
+
+                <div class="product-price">
+                    ₹2,999
+                </div>
+
+                <a href="/product/2" class="button">
+                    View Product
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ⌚
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-rating">
+                    ★★★★☆
+                </div>
+
+                <h2>Smart Watch</h2>
+
+                <p>
+                    Fitness and notification features
+                    for your daily life.
+                </p>
+
+                <div class="product-price">
+                    ₹2,499
+                </div>
+
+                <a href="/product/3" class="button">
+                    View Product
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-image">
+                🔌
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-rating">
+                    ★★★★☆
+                </div>
+
+                <h2>USB-C Hub</h2>
+
+                <p>
+                    Multi-port USB-C hub for
+                    laptops and desktops.
+                </p>
+
+                <div class="product-price">
+                    ₹1,299
+                </div>
+
+                <a href="/product/4" class="button">
+                    View Product
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
