@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "faizuu7/shopflow"
+        KUBECONFIG = "C:\\ProgramData\\Jenkins\\.kube\\config"
     }
 
     stages {
@@ -32,11 +33,11 @@ pipeline {
         }
 
         stage('Check Kubernetes') {
-    steps {
-        bat 'kubectl config current-context'
-        bat 'kubectl get nodes'
-    }
-}
+            steps {
+                bat 'kubectl config current-context'
+                bat 'kubectl get nodes'
+            }
+        }
 
         stage('Docker Build') {
             steps {
@@ -53,7 +54,7 @@ pipeline {
                         passwordVariable: 'DOCKER_PASSWORD'
                     )
                 ]) {
-                    bat 'docker login -u "%DOCKER_USERNAME%" -p "%DOCKER_PASSWORD%"'
+                    bat 'echo %DOCKER_PASSWORD% | docker login -u "%DOCKER_USERNAME%" --password-stdin'
                 }
             }
         }
@@ -61,6 +62,25 @@ pipeline {
         stage('Docker Push') {
             steps {
                 bat 'docker push %DOCKER_IMAGE%:%BUILD_NUMBER%'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                bat 'kubectl set image deployment/shopflow shopflow=%DOCKER_IMAGE%:%BUILD_NUMBER%'
+            }
+        }
+
+        stage('Kubernetes Rollout') {
+            steps {
+                bat 'kubectl rollout status deployment/shopflow'
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                bat 'kubectl get deployment shopflow'
+                bat 'kubectl get pods'
             }
         }
     }
