@@ -20,5 +20,17 @@ pipeline {
                 bat 'python -m pytest'
             }
         }
+
+        stage('Check Docker') {
+            steps {
+                bat 'docker --version'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                bat 'docker build -t shopflow:%BUILD_NUMBER% .'
+            }
+        }
     }
 }
