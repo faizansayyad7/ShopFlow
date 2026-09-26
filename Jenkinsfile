@@ -31,6 +31,13 @@ pipeline {
             }
         }
 
+        stage('Check Kubernetes') {
+    steps {
+        bat 'kubectl config current-context'
+        bat 'kubectl get nodes'
+    }
+}
+
         stage('Docker Build') {
             steps {
                 bat 'docker build -t %DOCKER_IMAGE%:%BUILD_NUMBER% .'
